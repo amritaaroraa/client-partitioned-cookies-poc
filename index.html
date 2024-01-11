@@ -4,8 +4,19 @@
 
 <h2>HTML Iframes</h2>
 
-<iframe src="https://main--steady-figolla-9d9595.netlify.app/.netlify/functions/api" height="200" width="300" title="Iframe Example"></iframe>
+<form id="form">
+    <input type="text" placeholder="Enter token" name="token">
+    <input type="submit" value="Click to send">
+  </form>
 
+<iframe id="iframe" src="https://main--steady-figolla-9d9595.netlify.app/.netlify/functions/api" height="200" width="300" title="Iframe Example"></iframe>
+
+<script type="text/javascript">
+    form.onsubmit = function() {
+        iframe.contentWindow.postMessage(this.token.value, 'https://main--steady-figolla-9d9595.netlify.app/.netlify/functions/api');
+        return false;
+    }
+</script>
 </body>
 </html>
 
